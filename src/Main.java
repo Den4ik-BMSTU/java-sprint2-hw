@@ -6,6 +6,7 @@ public class Main {
         AccountingAutomation accountingAutomation = new AccountingAutomation();
         Scanner scanner = new Scanner(System.in);
 
+
         while (true) {
             accountingAutomation.printMenu();
             int command = scanner.nextInt();
@@ -14,7 +15,7 @@ public class Main {
             } else if (command == 2) {
                 accountingAutomation.yearlyReport.getYearlyRecords();
             } else if (command == 3) {
-                accountingAutomation.checkAmountOfReports();
+                accountingAutomation.ReconciliationOfReports();
             } else if (command == 4) {
                 accountingAutomation.monthlyReport.printMonthReport();
             } else if (command == 5) {
@@ -34,7 +35,7 @@ public class Main {
         yearlyReport = new YearlyReport();
     }
 
-    void checkAmountOfReports() {
+    void ReconciliationOfReports() {
         if (yearlyReport.yearlyReportRecords.isEmpty() && monthlyReport.monthlyReportRecords.isEmpty()) {
             System.out.println("Годовой и месячный отчет еще не загружены...");
         } else if (yearlyReport.yearlyReportRecords.isEmpty()) {

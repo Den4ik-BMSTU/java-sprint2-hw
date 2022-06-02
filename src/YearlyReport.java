@@ -9,7 +9,7 @@ public class YearlyReport {
     MonthlyReport monthlyReport = new MonthlyReport();
     String[] yearName = {"2021"};
 
-    YearlyReport() {
+    YearlyReport() { //Данные годового отчёта
         yearlyReportRecords = new ArrayList<>();
         incomeRecord = new HashMap<>();
         expenseRecord = new HashMap<>();
@@ -49,7 +49,7 @@ public class YearlyReport {
     }
 
 
-    void getAvgExpenseAndIncomeOfTheYear() {
+    void getAvgOfTheYear() {
         int sumIncome = 0;
         for (Integer record : incomeRecord.values()) {
             sumIncome += record;
@@ -78,7 +78,7 @@ public class YearlyReport {
         if (!yearlyReportRecords.isEmpty()) {
             System.out.println("Отчет за " + yearName[0] + " год:");
             readYearStatistic();
-            getAvgExpenseAndIncomeOfTheYear();
+            getAvgOfTheYear();
         } else {
             System.out.println("Отчет еще не загружен...");
         }

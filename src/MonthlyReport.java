@@ -39,7 +39,7 @@ public class MonthlyReport {
         return sum;
     }
 
-    String getMaxIncomeItemName(int monthKey) {
+    String getMaxIncome(int monthKey) {
         int maxIncome = 0;
         String item;
         String maxItem = "";
@@ -54,10 +54,10 @@ public class MonthlyReport {
                 }
             }
         }
-        return "Прибыльный товар: " + maxItem + "\nСумма: " + maxIncome;
+        return "Самый прибыльный товар: " + maxItem + "\nСумма: " + maxIncome;
     }
 
-    String getMaxExpenseItemName(int monthKey) {
+    String getMaxExpense(int monthKey) {
         int maxExpense = 0;
         String item;
         String maxExpenseItem = "";
@@ -72,7 +72,7 @@ public class MonthlyReport {
                 }
             }
         }
-        return "Нерентабельный товар: " + maxExpenseItem + "\nСумма: " + maxExpense;
+        return "Больше всего потрачено: " + maxExpenseItem + "\nСумма: " + maxExpense;
     }
 
     void getMonthlyRecords() {
@@ -88,16 +88,15 @@ public class MonthlyReport {
         if (!monthlyReportRecords.isEmpty()) {
             for (int month : monthlyReportRecords.keySet()) {
                 System.out.println("Отчет за " + monthName[month - 1] + ":");
-                System.out.println(getMaxIncomeItemName(month));
-                System.out.println(getMaxExpenseItemName(month));
+                System.out.println(getMaxIncome(month));
+                System.out.println(getMaxExpense(month));
             }
         } else {
             System.out.println("Отчет еще не загружен...");
         }
     }
 }
-//
- class MonthlyReportRecord {
+class MonthlyReportRecord {
     String itemName;
     boolean isExpense;
     int quantity;
