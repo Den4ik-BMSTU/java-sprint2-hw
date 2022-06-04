@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MonthlyReport {
-    HashMap<Integer, ArrayList<MonthlyReportRecord>> monthlyReportRecords;
+    HashMap<Integer, ArrayList<MonthlyReportRecord>> monthlyReportRecords;// замечание по поводу этой строки до конца не понял
     String[] monthName = {"январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"};
     FileReader fileReader = new FileReader();
 
@@ -11,7 +11,7 @@ public class MonthlyReport {
     }
 
     void readMonthlyRecords() {
-        for (int month = 1; month <= 3; month++) {
+        for (int month = 1; month <= 12; month++) {
             ArrayList<MonthlyReportRecord> recordMonth = new ArrayList<>();
             String monthRecord = fileReader.readFileContentsOrNull("resources/m.20210" + month + ".csv");
             String[] lines = monthRecord.split("\n");
@@ -94,18 +94,5 @@ public class MonthlyReport {
         } else {
             System.out.println("Отчет еще не загружен...");
         }
-    }
-}
-class MonthlyReportRecord {
-    String itemName;
-    boolean isExpense;
-    int quantity;
-    int sumOfOne;
-
-    MonthlyReportRecord(String itemName, boolean isExpense, int quantity, int sumOfOne) {
-        this.itemName = itemName;
-        this.isExpense = isExpense;
-        this.quantity = quantity;
-        this.sumOfOne = sumOfOne;
     }
 }

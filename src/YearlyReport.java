@@ -36,7 +36,7 @@ public class YearlyReport {
             } else {
                 incomeRecord.put(record.month, record.amount);
             }
-            if (!(expenseRecord.get(record.month) == null) && !(incomeRecord.get(record.month) == null)) {
+            if (expenseRecord.get(record.month) != null && incomeRecord.get(record.month) != null) {
                 int profitOfTheMonth;
                 profitOfTheMonth = incomeRecord.get(record.month) - expenseRecord.get(record.month);
                 if (profitOfTheMonth < 0) {
@@ -62,7 +62,7 @@ public class YearlyReport {
             sumExpense += record;
         }
         int avgExpense = sumExpense / expenseRecord.size();
-        System.out.println("Средняя прибыль за год составила: " + avgExpense + " руб.");
+        System.out.println("Средний расход за год составила: " + avgExpense + " руб.");
     }
 
     void getYearlyRecords() {
@@ -83,16 +83,7 @@ public class YearlyReport {
             System.out.println("Отчет еще не загружен...");
         }
     }
-}
-//
- class YearlyReportRecord {
-    int month;
-    int amount;
-    boolean isExpense;
-
-    YearlyReportRecord(int month, int amount, boolean isExpense) {
-        this.month = month;
-        this.amount = amount;
-        this.isExpense = isExpense;
+    boolean isYearlyReportsExists(){
+        return yearlyReportRecords.isEmpty();
     }
 }
