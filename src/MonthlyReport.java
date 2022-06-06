@@ -1,17 +1,17 @@
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MonthlyReport {
-    HashMap<Integer, ArrayList<MonthlyReportRecord>> monthlyReportRecords;// замечание по поводу этой строки до конца не понял
+    HashMap<Integer, ArrayList<MonthlyReportRecord>> monthlyReportRecords = new HashMap<>();
     String[] monthName = {"январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"};
     FileReader fileReader = new FileReader();
 
-    MonthlyReport() {
-        monthlyReportRecords = new HashMap<>();
-    }
-
     void readMonthlyRecords() {
         for (int month = 1; month <= 12; month++) {
+
+            if (Files.exists(Path.of("resources/m.20210" + month + ".csv"))){
             ArrayList<MonthlyReportRecord> recordMonth = new ArrayList<>();
             String monthRecord = fileReader.readFileContentsOrNull("resources/m.20210" + month + ".csv");
             String[] lines = monthRecord.split("\n");
@@ -25,6 +25,7 @@ public class MonthlyReport {
                 MonthlyReportRecord monthlyRecord = new MonthlyReportRecord(itemName, isExpense, quantity, sumOfOne);
                 recordMonth.add(monthlyRecord);
                 monthlyReportRecords.put(month, recordMonth);
+            }
             }
         }
     }

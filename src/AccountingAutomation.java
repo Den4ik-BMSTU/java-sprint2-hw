@@ -24,7 +24,7 @@ class AccountingAutomation {
             if (yearlyReportRecord.isExpense) {
                 if (monthlyReport.getSumIncomeOrExpenseOfTheMonth(yearlyReportRecord.month, true) != yearlyReportRecord.amount) {
                     System.out.println("Убыток за " + monthlyReport.monthName[yearlyReportRecord.month - 1] + " несоответствует годовому отчету");
-                    isValid = false;
+                    isValid = false;}
                 } else {
                     if (monthlyReport.getSumIncomeOrExpenseOfTheMonth(yearlyReportRecord.month, false) != yearlyReportRecord.amount) {
                         System.out.println("Доход за " + monthlyReport.monthName[yearlyReportRecord.month - 1] + " несоответствует годовому отчету");
@@ -37,7 +37,7 @@ class AccountingAutomation {
                 System.out.println("Сверка отчетов успешно завершена...");
             }
         }
-    }
+
     void printMenu() {
         System.out.println("1 -- Считать все месячные отчёты");
         System.out.println("2 -- Считать годовой отчёт");

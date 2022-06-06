@@ -23,6 +23,9 @@ public class Main {
             } else if (command == 0) {
                 break;
             }
+            else {
+                System.out.println("Введено не корректное значение.");
+            }
         }
     }
 }
